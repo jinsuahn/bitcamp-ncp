@@ -39,7 +39,7 @@ public class ClientApp {
     System.out.printf("%s", title);
     return keyboard.nextLine();
   }
-  
+
 }
 
 
