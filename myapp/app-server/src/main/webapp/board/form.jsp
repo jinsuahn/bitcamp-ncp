@@ -7,8 +7,8 @@
 <title>비트캠프 - NCP 1기</title>
 </head>
 <body>
-<h1>게시판(JSP)</h1>
-<form action='insert.jsp' method='post'>
+<h1>게시판(JSP + MVC2)</h1>
+<form action='insert' method='post'>
 <table border='1'>
 <tr>
   <th>제목</th>
@@ -17,10 +17,6 @@
 <tr>
   <th>내용</th>
   <td><textarea name='content' rows='10' cols='60'></textarea></td>
-</tr>
-<tr>
-  <th>암호</th>
-  <td><input type='password' name='password'></td>
 </tr>
 </table>
 <div>
@@ -31,7 +27,7 @@
 
 <script>
 document.querySelector('#btn-cancel').onclick = function() {
-  location.href = 'list.jsp';
+  location.href = 'list';
 }
 </script>
 
