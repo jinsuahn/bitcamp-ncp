@@ -16,6 +16,10 @@ import bitcamp.myapp.vo.BoardFile;
 @Controller
 public class DownloadController {
 
+  {
+    System.out.println("DownloadController 생성됨!");
+  }
+
   @Autowired private BoardService boardService;
 
   @RequestMapping("/download/boardfile")
@@ -54,7 +58,7 @@ public class DownloadController {
 
     } catch (Exception e) {
       e.printStackTrace();
-      return "/downloadfail.jsp";
+      return "downloadfail";
     }
     return null;
   }
