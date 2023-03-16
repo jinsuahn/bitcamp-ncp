@@ -7,12 +7,12 @@ import bitcamp.myapp.vo.Teacher;
 
 @Mapper
 public interface TeacherDao {
-	void insert(Teacher t);
-	List<Teacher> findAll();
-	Teacher findByNo(int no);
-	Teacher findByEmailAndPassword(Map<String, Object> params);
-	int update(Teacher t);
-	int delete(int no);
+  void insert(Teacher t);
+  List<Teacher> findAll();
+  Teacher findByNo(int no);
+  Teacher findByEmailAndPassword(Map<String, Object> params);
+  int update(Teacher t);
+  int delete(int no);
 }
 
 

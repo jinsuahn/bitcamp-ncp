@@ -7,15 +7,15 @@ import bitcamp.myapp.vo.Member;
 @Mapper
 public interface MemberDao {
 
-	void insert(Member m);
+  void insert(Member m);
 
-	List<Member> findAll();
+  List<Member> findAll();
 
-	Member findByNo(int no);
+  Member findByNo(int no);
 
-	int update(Member m);
+  int update(Member m);
 
-	int delete(int no);
+  int delete(int no);
 
 }
 
