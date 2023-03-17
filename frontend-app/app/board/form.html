@@ -31,9 +31,9 @@
 
 <script>
 document.querySelector('#add-btn').onclick = (e) => {
-  let title = encodeURIComponent(document.querySelector('#f-title').value);
-  let content = encodeURIComponent(document.querySelector('#f-content').value);
-  let password = document.querySelector('#f-password').value;
+  var title = encodeURIComponent(document.querySelector('#f-title').value);
+  var content = encodeURIComponent(document.querySelector('#f-content').value);
+  var password = document.querySelector('#f-password').value;
 
   // console.log(`title=${title}&content=${content}&password=${password}`);
   fetch('http://localhost:8080/boards', {
