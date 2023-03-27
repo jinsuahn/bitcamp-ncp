@@ -14,54 +14,59 @@ import bitcamp.myapp.vo.Student;
 @Service
 public class DefaultStudentService implements StudentService {
 
-  @Autowired private MemberDao memberDao;
-  @Autowired private StudentDao studentDao;
+	@Autowired private MemberDao memberDao;
+	@Autowired private StudentDao studentDao;
 
-  @Transactional
-  @Override
-  public void add(Student student) {
-    memberDao.insert(student);
-    studentDao.insert(student);
-  }
+	@Transactional
+	@Override
+	public void add(Student student) {
+		memberDao.insert(student);
+		studentDao.insert(student);
+	}
 
-  @Override
-  public List<Student> list(String keyword) {
-    return studentDao.findAll(keyword);
-  }
+	@Override
+	public List<Student> list(String keyword) {
+		return studentDao.findAll(keyword);
+	}
 
-  @Override
-  public Student get(int no) {
-    return studentDao.findByNo(no);
-  }
+	@Override
+	public Student get(int no) {
+		return studentDao.findByNo(no);
+	}
 
-  @Override
-  public Student get(String email, String password) {
-    Map<String,Object> paramMap = new HashMap<>();
-    paramMap.put("email", email);
-    paramMap.put("password", password);
+	@Override
+	public Student get(String email, String password) {
+		Map<String,Object> paramMap = new HashMap<>();
+		paramMap.put("email", email);
+		paramMap.put("password", password);
 
-    return studentDao.findByEmailAndPassword(paramMap);
-  }
+		return studentDao.findByEmailAndPassword(paramMap);
+	}
 
-  @Transactional
-  @Override
-  public void update(Student student) {
-    if (memberDao.update(student) == 1 &&
-        studentDao.update(student) == 1) {
-    } else {
-      throw new RuntimeException("회원이 존재하지 않습니다.");
-    }
-  }
+	@Override
+	public Student get(String email) {
+		return studentDao.findByEmail(email);
+	}
 
-  @Transactional
-  @Override
-  public void delete(int no) {
-    if (studentDao.delete(no) == 1 &&
-        memberDao.delete(no) == 1) {
-    } else {
-      throw new RuntimeException("회원이 존재하지 않습니다.");
-    }
-  }
+	@Transactional
+	@Override
+	public void update(Student student) {
+		if (memberDao.update(student) == 1 &&
+				studentDao.update(student) == 1) {
+		} else {
+			throw new RuntimeException("회원이 존재하지 않습니다.");
+		}
+	}
+
+	@Transactional
+	@Override
+	public void delete(int no) {
+		if (studentDao.delete(no) == 1 &&
+				memberDao.delete(no) == 1) {
+		} else {
+			throw new RuntimeException("회원이 존재하지 않습니다.");
+		}
+	}
 }
 
 

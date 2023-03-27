@@ -1,4 +1,46 @@
 -- 강의
+DROP TABLE IF EXISTS lms_lecture RESTRICT;
+
+-- 학생
+DROP TABLE IF EXISTS lms_student RESTRICT;
+
+-- 강사
+DROP TABLE IF EXISTS lms_teacher RESTRICT;
+
+-- 매니저
+DROP TABLE IF EXISTS lms_manager RESTRICT;
+
+-- 강의실
+DROP TABLE IF EXISTS lms_class RESTRICT;
+
+-- 회원
+DROP TABLE IF EXISTS lms_member RESTRICT;
+
+-- 교육센터
+DROP TABLE IF EXISTS lms_edu_center RESTRICT;
+
+-- 부서
+DROP TABLE IF EXISTS lms_department RESTRICT;
+
+-- 학력
+DROP TABLE IF EXISTS lms_degree RESTRICT;
+
+-- 강의실사진
+DROP TABLE IF EXISTS lms_class_photo RESTRICT;
+
+-- 기본주소
+DROP TABLE IF EXISTS lms_addr RESTRICT;
+
+-- 수강신청
+DROP TABLE IF EXISTS lms_application RESTRICT;
+
+-- 강의배정
+DROP TABLE IF EXISTS lms_lecture_teacher RESTRICT;
+
+-- 신청상태
+DROP TABLE IF EXISTS lms_application_state RESTRICT;
+
+-- 강의
 CREATE TABLE lms_lecture (
   lecture_id INTEGER      NOT NULL COMMENT '강의번호', -- 강의번호
   title      VARCHAR(255) NOT NULL COMMENT '강의명', -- 강의명
@@ -25,6 +67,9 @@ CREATE INDEX IX_lms_lecture
   ON lms_lecture( -- 강의
     title ASC -- 강의명
   );
+
+ALTER TABLE lms_lecture
+  MODIFY COLUMN lecture_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '강의번호';
 
 -- 학생
 CREATE TABLE lms_student (
