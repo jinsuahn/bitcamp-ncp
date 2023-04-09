@@ -218,3 +218,5 @@ gradle-app.setting
 upload/
 # Ignore Gradle build output directory
 build
+
+naver.properties

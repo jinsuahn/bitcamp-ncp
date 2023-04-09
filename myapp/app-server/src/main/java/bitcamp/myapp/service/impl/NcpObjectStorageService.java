@@ -35,7 +35,7 @@ public class NcpObjectStorageService implements ObjectStorageService {
 	}
 
 	@Override
-	public String uploadFile(String bucketName, MultipartFile file) {
+	public String uploadFile(String bucketName, String directoryPath, MultipartFile file) {
 		if (file.isEmpty()) {
 			return null;
 		}
@@ -48,13 +48,14 @@ public class NcpObjectStorageService implements ObjectStorageService {
 
 			PutObjectRequest objectRequest = new PutObjectRequest(
 					bucketName,
-					filename,
+					directoryPath + filename,
 					fileIn,
 					objectMetadata).withCannedAcl(CannedAccessControlList.PublicRead);
 
 			s3.putObject(objectRequest);
 
-			return s3.getUrl(bucketName, filename).toString();
+			//return s3.getUrl(bucketName, filename).toString();
+			return filename;
 
 		} catch (Exception e) {
 			throw new RuntimeException("파일 업로드 오류!", e);

@@ -55,15 +55,16 @@ public class BoardController {
 
 		List<BoardFile> boardFiles = new ArrayList<>();
 		for (MultipartFile file : files) {
-			String fileUrl = objectStorageService.uploadFile(bucketeName, file);
-			if (fileUrl == null) {
+			String filename = objectStorageService.uploadFile(bucketeName, "board/", file);
+			if (filename == null) {
 				continue;
 			}
 
 			BoardFile boardFile = new BoardFile();
 			boardFile.setOriginalFilename(file.getOriginalFilename());
-			boardFile.setFilepath(fileUrl);
+			boardFile.setFilepath(filename);
 			boardFile.setMimeType(file.getContentType());
+			boardFile.setBoardNo(board.getNo());
 			boardFiles.add(boardFile);
 		}
 		board.setAttachedFiles(boardFiles);
